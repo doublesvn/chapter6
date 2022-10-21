@@ -35,7 +35,7 @@ describe("/auth/register - duplicate username", () => {
     });
 });
 
-describe("/auth/login - Login Failde - Username mismatch ", () => {
+describe("/auth/login - Login Failed - Username mismatch ", () => {
     test("res.json { status: false, message: username or password doesn't match! }", async () => {
       const res = await request(app).post("/auth/login").send({
         username: "username123",
@@ -72,7 +72,7 @@ describe("/auth/login - success", () => {
   });
 });
 
-describe("/auth/changepassword- change password failed - newpassword same with old", () => {
+describe("/auth/changepassword- change password failed - password wrong", () => {
     test("res.json { status: false, message: old password does not match!}", async () => {
       const res = await request(app)
         .put("/auth/changepassword")
@@ -154,7 +154,7 @@ describe("/bio/addbio - success", () => {
     });
 });
 
-describe("show/bio - success", () => {
+describe("/show/bio - success", () => {
     test("res.json { status: true, message: show success, data: { [data] } }", async () => {
         const res = await request(app)
         .get("/bio/showbio")
